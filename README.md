@@ -48,5 +48,37 @@ s
 Error: Unexpected character: s
 ``` 
 
+## Task 03
+A gramática atual da nossa RPN é a seguinte:
+
+```
+Expr = num
+         |  Expr Expr op
+
+op    = [+-/*]
+num = [0-9]+
+```
+
+Agora, nossa linguagem dará suporte para variáveis (IDs), por conseguinte, temos a seguinte mudança gramatical:
+
+```
+Expr = num
+         |  id
+         | Expr Expr op
+
+op    = [+-/*]
+num = [0-9]+
+id = ... (regra livre de identificadores a seu critério)
+```
+
+Baseado na gramática acima [incluindo ID expr], atualize o projeto Postfix para dar suporte ao uso de variaveis/ids.
+
+Exemplos de entrada: 
+``` 
+10 10 +      = 20
+10 y +       = 20 [onde y foi entrado com valor 10] ou seja, [y -> 10]
+10 w +       = w cannot be resolved [onde w não foi entrado no mapeamento... ou seja, apenas temos o y [y -> 10]
+``` 
+
 ## Aluno
 Uanderson Ricardo (urfs)
